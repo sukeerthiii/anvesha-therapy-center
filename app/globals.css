@@ -1,26 +1,104 @@
 @import "tailwindcss";
 
+@theme {
+  --color-cream: #fbf6ec;
+  --color-cream-deep: #f3ead6;
+  --color-paper: #fffdf8;
+
+  --color-ink: #14557a;
+  --color-ink-soft: #3a7290;
+  --color-ink-deep: #0f3f5a;
+
+  --color-green: #5ba84f;
+  --color-green-soft: #e6f1de;
+
+  --color-gold: #f6b73c;
+  --color-gold-soft: #fbe7bd;
+
+  --color-coral: #d9472e;
+  --color-coral-soft: #f7d9d2;
+
+  --color-sky-soft: #dcebf2;
+
+  --font-display: "Baloo 2", ui-rounded, system-ui, sans-serif;
+  --font-body: "Mukta", system-ui, sans-serif;
+
+  --radius-soft: 1.25rem;
+  --radius-pill: 999px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: var(--color-cream);
+  --foreground: var(--color-ink-deep);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink-deep);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Calm by default: honour reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Soft floating motion for the hero motifs */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-drift {
+  animation: drift 7s ease-in-out infinite;
+}
+
+/* A paper-grain wash that keeps the watercolour feeling without heavy images */
+.paper-grain {
+  background-image: radial-gradient(
+      circle at 20% 20%,
+      rgba(246, 183, 60, 0.06),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(91, 168, 79, 0.07),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(20, 85, 122, 0.05),
+      transparent 50%
+    );
+}
+
+/* Visible, friendly focus ring for keyboard users */
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
