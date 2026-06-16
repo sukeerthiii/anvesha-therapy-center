@@ -2,12 +2,6 @@
 
 Website for Anvesha, a therapy centre in India for children with cerebral palsy and other special needs. The site helps parents find the right therapy and therapist for their child, and helps therapists join the team.
 
-## Tech
-
-- Next.js (App Router) and TypeScript
-- Tailwind CSS v4
-- Hand drawn watercolour illustrations and a warm, calm design system
-- Mobile first and fully responsive
 
 ## Running locally
 
